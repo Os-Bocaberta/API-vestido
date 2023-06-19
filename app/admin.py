@@ -1,11 +1,16 @@
 from django.contrib import admin
-from .models import status
+from .models import dress_effects, fire_effects
 
 # Register your models here.
 
 
-class AdminStatus(admin.ModelAdmin):
+class AdminDressEffects(admin.ModelAdmin):
     list_display = ['id', 'status']
 
 
-admin.site.register(status, AdminStatus)
+class AdminFireEffects(admin.ModelAdmin):
+    list_display = ['id', 'name', 'status']
+
+
+admin.site.register(dress_effects, AdminDressEffects)
+admin.site.register(fire_effects, AdminFireEffects)

@@ -1,8 +1,14 @@
 from rest_framework import serializers
-from .models import status
+from .models import dress_effects, fire_effects
 
 
-class StatusSerializer(serializers.ModelSerializer):
+class DressSerializer(serializers.ModelSerializer):
     class Meta:
-        model = status
+        model = dress_effects
+        fields = ['status']
+
+
+class FireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = fire_effects
         fields = ['status']
