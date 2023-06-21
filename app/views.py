@@ -13,8 +13,8 @@ def dress(request):
     return JsonResponse(serializedInfo.data, safe=False)
 
 
-def volcano1(request):
-    statusCode = fire_effects.objects.all().filter(id=1)
+def fireEffects(request):
+    statusCode = fire_effects.objects.all().filter(id__range=(1, 6))
     serializedInfo = FireSerializer(statusCode, many=True)
 
     return JsonResponse(serializedInfo.data, safe=False)

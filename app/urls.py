@@ -20,7 +20,5 @@ from . import views
 
 urlpatterns = [
     path('dress/', views.dress, name='Vestido'),
-    path('volcano1/', views.volcano1, name='Volcano 1'),
-    path('volcano2/', views.volcano2, name='Volcano 2'),
-    path('volcano3/', views.volcano3, name='Volcano 3'),
+    path('fireEffects/', views.fireEffects, name='Fire Effects'),
 ]
