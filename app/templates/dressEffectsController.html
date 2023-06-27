@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/global.css' %}">
+    <title>Document</title>
+</head>
+<body>
+        <form class="container_all" method="POST">
+            {% csrf_token %}
+            <h1 class="super_h1">Efeitos do Vestido</h1>
+            <div class="fire_container">
+                <div class="checkbox-wrapper-24 fire_select_container">
+                    <input class="checkoption" type="checkbox" id="1" name="1" onclick="checkedOnClick(this);"></input>
+                    <label for="1">
+                        <div class="fire_select_container">
+                            <span></span>
+                            <h1 class="button-52 a1">Off</h1>
+                        </div>
+                    </label>
+                </div>
+                <div class="checkbox-wrapper-24 fire_select_container">
+                    <input class="checkoption" type="checkbox" id="2" name="2" onclick="checkedOnClick(this);"></input>
+                    <label for="2">
+                        <div class="fire_select_container">
+                            <span></span>
+                            <h1 class="button-52 a2">Rainbow Fade</h1>
+                        </div>
+                    </label>
+                </div>
+                <div class="checkbox-wrapper-24 fire_select_container">
+                    <input class="checkoption" type="checkbox" id="3" name="3" onclick="checkedOnClick(this);"></input>
+                    <label for="3">
+                        <div class="fire_select_container">
+                            <span></span>
+                            <h1 class="button-52 a3">Fire</h1>
+                        </div>
+                    </label>
+                </div>
+                <div class="checkbox-wrapper-24 fire_select_container">
+                    <input class="checkoption" type="checkbox" id="4" name="4" onclick="checkedOnClick(this);"></input>
+                    <label for="4">
+                        <div class="fire_select_container">
+                            <span></span>
+                            <h1 class="button-52 a4">Spectrum</h1>
+                        </div>
+                    </label>
+                </div>
+                <div class="checkbox-wrapper-24 fire_select_container">
+                    <input class="checkoption" type="checkbox" id="5" name="5" onclick="checkedOnClick(this);"></input>
+                    <label for="5">
+                        <div class="fire_select_container">
+                            <span></span>
+                            <h1 class="button-52 a5">Heart Beat</h1>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <button class="button-53">Alterar</button>
+        </form>
+
+        <script type="text/javascript">
+            function checkedOnClick(el){
+         
+               // Select all checkboxes by class
+               var checkboxesList = document.getElementsByClassName("checkoption");
+               for (var i = 0; i < checkboxesList.length; i++) {
+                  checkboxesList.item(i).checked = false; // Uncheck all checkboxes
+               }
+         
+               el.checked = true; // Checked clicked checkbox
+            }
+        </script>
+</body>
+</html>

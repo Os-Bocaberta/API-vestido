@@ -20,15 +20,34 @@ def fireEffects(request):
     return JsonResponse(serializedInfo.data, safe=False)
 
 
-def volcano2(request):
-    statusCode = fire_effects.objects.all().filter(id=2)
-    serializedInfo = FireSerializer(statusCode, many=True)
+def fireEffectsController(request):
+    statusCode = fire_effects.objects.all().filter(
+        id__range=(1, 6)).values_list('id', 'status', 'name')
 
-    return JsonResponse(serializedInfo.data, safe=False)
+    if request.method == 'POST':
+        for x in range(1, 7):
+            data = request.POST.get(str(x))
+            if (data == 'on'):
+                dataSave = fire_effects(
+                    id=x, name=statusCode[x - 1][2], status=1)
+                dataSave.save()
+            else:
+                dataSave = fire_effects(
+                    id=x, name=statusCode[x - 1][2], status=0)
+                dataSave.save()
+
+    return render(request, 'fireEffectsController.html', {'status': statusCode})
 
 
-def volcano3(request):
-    statusCode = fire_effects.objects.all().filter(id=3)
-    serializedInfo = FireSerializer(statusCode, many=True)
+def dressEffectsController(request):
+    statusCode = dress_effects.objects.all().filter(id=1).values('status')
 
-    return JsonResponse(serializedInfo.data, safe=False)
+    if request.method == 'POST':
+        for x in range(1, 6):
+            data = request.POST.get(str(x))
+            if (data == 'on'):
+                dataSave = dress_effects(
+                    id=1, status=x - 1)
+                dataSave.save()
+
+    return render(request, 'dressEffectsController.html', {'status': statusCode})

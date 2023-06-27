@@ -21,4 +21,8 @@ from . import views
 urlpatterns = [
     path('dress/', views.dress, name='Vestido'),
     path('fireEffects/', views.fireEffects, name='Fire Effects'),
+    path('fireEffectsController/', views.fireEffectsController,
+         name='Fire Effects Controller'),
+    path('dressEffectsController/', views.dressEffectsController,
+         name='Dress Effects Controller')
 ]

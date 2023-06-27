@@ -23,5 +23,4 @@ class dress_effects(models.Model):
 
 class fire_effects(models.Model):
     name = models.CharField(default='untitled', max_length=255)
-    status = models.IntegerField(
-        choices=fire_options.choices, default=fire_options.off)
+    status = models.BooleanField(default=False)
